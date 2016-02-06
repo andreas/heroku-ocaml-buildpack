@@ -20,6 +20,7 @@ source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
 echo "----> Opam switch"
 opam switch 4.02.3
 eval `opam config env`
+opam update
 
 cd $BUILD_DIR
 echo "-----> install dependencies"
