@@ -15,6 +15,9 @@ curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env 
 echo "-----> Source ocamlbrew"
 source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
 
+echo "----> Opam switch"
+opam switch 4.02.3
+
 cd $BUILD_DIR
 echo "-----> install dependencies"
 opam pin add my_app .
