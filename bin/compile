@@ -18,21 +18,20 @@ echo "----> wget cudf"
 cd $CACHE_DIR
 if [ ! -f cudf_remote_proxy ]; then
 	wget http://cudf-solvers.irill.org/cudf_remote_proxy
+	chmod +x cudf_remote_proxy
 fi
 
-echo "----> Setup cudf"
+echo "-----> Setup cudf"
 export OPAMEXTERNALSOLVER=$CACHE_DIR/cudf_remote_proxy
-chmod +x $CACHE_DIR/cudf_remote_proxy
 
 echo "-----> Source Ocamlbrew"
 source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
 
-echo "----> Opam switch"
+echo "-----> Opam switch"
 opam switch 4.02.3
 eval `opam config env`
 echo $OPAMEXTERNALSOLVER
 opam update
-opam upgrade
 
 cd $BUILD_DIR
 echo "-----> install dependencies"
