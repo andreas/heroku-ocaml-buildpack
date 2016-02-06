@@ -11,6 +11,7 @@ indent() {
 
 echo "-----> Setup Ocamlbrew"
 curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew" bash
+echo "HSDGHFDSGSDFGSDFG"
 
 cd $BUILD_DIR
 echo "-----> install dependencies"
