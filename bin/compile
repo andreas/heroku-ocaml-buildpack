@@ -22,6 +22,7 @@ fi
 
 echo "----> Setup cudf"
 export OPAMEXTERNALSOLVER=$CACHE_DIR/cudf_remote_proxy
+chmod +x $CACHE_DIR/cudf_remote_proxy
 
 echo "-----> Source Ocamlbrew"
 source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
