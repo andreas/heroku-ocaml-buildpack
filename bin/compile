@@ -1,0 +1,17 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Setup Ocamlbrew"
+curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew" bash
+
+cd $BUILD_DIR
+echo "-----> install dependencies"
+opam pin add my_app .
+echo "-----> make"
+make all 2>&1 | indent
