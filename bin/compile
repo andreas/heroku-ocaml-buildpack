@@ -14,6 +14,15 @@ if [ ! -f $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc ]; then
 	curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew -r" bash
 fi
 
+echo "----> wget cudf"
+cd $CACHE_DIR
+if [ ! -f cudf_remote_proxy ]; then
+	wget http://cudf-solvers.irill.org/cudf_remote_proxy
+fi
+
+echo "----> Setup cudf"
+OPAMEXTERNALSOLVER=$CACHE_DIR/cudf_remote_proxy
+
 echo "-----> Source Ocamlbrew"
 source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
 
