@@ -10,7 +10,7 @@ indent() {
 }
 
 echo "-----> Setup Ocamlbrew"
-curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew" bash
+curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew -x" bash
 echo "HSDGHFDSGSDFGSDFG"
 
 cd $BUILD_DIR
