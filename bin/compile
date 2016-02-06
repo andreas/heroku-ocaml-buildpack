@@ -10,9 +10,10 @@ indent() {
 }
 
 echo "-----> Setup Ocamlbrew"
-curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew -r" bash
-
-echo "-----> Source ocamlbrew"
+if [ ! -f $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc ]; then
+	curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew -r" bash
+fi
+echo "-----> Source Ocamlbrew"
 source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
 
 echo "----> Opam switch"
