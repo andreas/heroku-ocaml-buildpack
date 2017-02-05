@@ -9,9 +9,9 @@ indent() {
   sed -u 's/^/       /'
 }
 
-if [ ! -f $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc ]; then
+if [ ! -f $CACHE_DIR/ocamlbrew/ocaml-4.03.0/etc/ocamlbrew.bashrc ]; then
 	echo "-----> Setup Ocamlbrew"
-	curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.02.3 -b $CACHE_DIR/ocamlbrew -r" bash
+	curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-v 4.03.0 -b $CACHE_DIR/ocamlbrew -r" bash
 fi
 
 cd $CACHE_DIR
@@ -25,10 +25,10 @@ echo "-----> Setup cudf"
 export OPAMEXTERNALSOLVER=$CACHE_DIR/cudf_remote_proxy
 
 echo "-----> Source Ocamlbrew"
-source $CACHE_DIR/ocamlbrew/ocaml-4.02.3/etc/ocamlbrew.bashrc
+source $CACHE_DIR/ocamlbrew/ocaml-4.03.0/etc/ocamlbrew.bashrc
 
 echo "-----> Opam switch"
-opam switch 4.02.3
+opam switch 4.03.0
 eval `opam config env`
 opam update
 opam upgrade
